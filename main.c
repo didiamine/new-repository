@@ -1,24 +1,36 @@
-#include "player.h"
+#include "defs.h"
+#include "jeu.h"
+#include <SDL/SDL.h>
 
-int main (void)
+
+int main ( int argc, char** argv )
 {
-SDL_Surface *ecran =NULL;
-	pers p;
 
-    SDL_Init(SDL_INIT_VIDEO);
-ecran = SDL_SetVideoMode(1366, 768, 32, SDL_HWSURFACE | SDL_DOUBLEBUF);
-    SDL_WM_SetCaption("annimation joueur", NULL);
+	SDL_Surface *screen;
+	// initialize SDL video
+	if ( SDL_Init( SDL_INIT_VIDEO ) < 0 ) 
+	{
+		printf( "Unable to init SDL: %s\n", SDL_GetError() );
+		return 1;
+	}
 
-if (ecran==NULL)
-{
-printf("error: %s ",SDL_GetError());
-exit(EXIT_FAILURE);
-}
+	// make sure SDL cleans up before exit
+	atexit(SDL_Quit);
+
+	// create a new window
+	screen = SDL_SetVideoMode(SCREEN_W, SCREEN_H, 32,
+	                          SDL_HWSURFACE|SDL_DOUBLEBUF | SDL_SRCALPHA);
+	if ( !screen ) 
+	{
+		printf("Unable to set %d * %d video: %s\n",SCREEN_W, SCREEN_H, SDL_GetError());
+		return 1;
+	}
 
 
-initialiserperso( &p);
-mouvement(p,ecran);
-liberer_surface(&p);
-SDL_Quit();
-    return EXIT_SUCCESS;
+	jouer(screen);
+
+
+	// all is well ;)
+	printf("Exited cleanly\n");
+	return 0;
 }
