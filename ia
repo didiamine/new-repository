@@ -1,0 +1,12 @@
+#include <stdio.h>
+#include "SDL/SDL.h"
+#include "SDL/SDL_image.h"
+#include <stdlib.h>
+
+int ia(SDL_Rect posperso, SDL_Rect posennemi){
+int d=70;
+int d2;
+d2=posennemi.x-posperso.x;
+if(d2<d)
+{return 1;}
+else return 0;}
