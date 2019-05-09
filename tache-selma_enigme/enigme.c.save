@@ -1,0 +1,175 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <string.h>
+#include "enigme.h"
+int afficher_enigme(char nom_fich[])
+{
+	FILE* bible=NULL;
+	char enig[20];
+	SDL_Surface *chaine=NULL;
+	TTF_Init();
+	bible=fopen(nom_fich,"w+");
+	if(bible!=NULL)
+	{
+		while(fscanf(bible,"%s \n",enig)!=EOF)
+                {
+                        s+=1;
+                }
+		police = TTF_OpenFont("fente.ttf", 30);
+		chaine = TTF_RenderText_Blended(po,enig, couleurBlanche);
+		fclose(bible);
+	}
+	return alea;
+}
+/*int afficher_enigme(SDL_Surface *ecran)
+{
+        FILE* bible=NULL;
+        int MAX ,MIN=1,alea,s=0;
+        char enig[20];
+        SDL_Surface *chaine=NULL;
+        SDL_Rect position;
+        TTF_Init();
+        srand(time(NULL));
+        bible=fopen("fichier_enigme","w+");
+        if(bible!=NULL)
+        {
+                while(fscanf(bible,"%s \n",chaine)!=EOF)
+                {
+                        s+=1;
+                }
+                MAX=s;
+                alea=(rand()%(MAX -MIN +1) +MIN);
+                s=0;
+                while(fscanf(bible,"%s \n",enig)!=EOF && s!=alea)
+                {
+                        s+=1;
+                }
+                police = TTF_OpenFont("fente.ttf", 30);
+                chaine = TTF_RenderText_Blended(po,enig, couleurBlanche);
+                SDL_BlitSurface(chaine,NULL,ecran,&position);
+                SDL_Flip(ecran);
+                fclose(bible);
+        }
+        return alea;
+}*/
+/*int resolution (int alea, SDL_Event event)
+{
+        FILE* reponse=NULL;
+        char enigm[15],trans[15],let;
+        int s=0,x=0,cpt=0,continuer=1;
+        reponse=fopen("reponse_enigme","w+");
+        if(reponse!=NULL)
+        {
+                while(fscanf(bible,"%s \n",enigm)!=EOF && s!=alea)
+                {
+                        s+=1;
+                }
+                x=strlen(enigm)-1;
+                while(continuer)
+                {
+                        SDL_WaitEvent(&event)
+                        switch(event.type)
+                        {
+                                case SDL_QUIT:
+                                        continuer = 0;
+                                break;
+                                case SDL_KEYDOWN:
+                                        switch(event.key.keysym.sym)
+                                        {
+                                                case SDLK_a:
+                                                        trans[cpt]='a';
+                                                        break;
+                                                case SDLK_b:
+                                                        ='b';
+                                                        break;
+                                                case SDLK_c:
+        						let='c';
+                                                        break;
+                                                case SDLK_d:
+                                                        let='d';
+                                                        break;
+                                                case SDLK_e:
+                                                        let='e';
+                                                        break;
+                                                case SDLK_f:
+                                                        let='f';
+                                                        break;
+                                                case SDLK_g:
+                                                        let='g';
+                                                        break;
+                                                case SDLK_h:
+                                                        let='h';
+                                                        break;
+                                                case SDLK_i:
+                                                        let='i';
+                                                        break;
+                                                case SDLK_j:
+                                                        let='j';
+                                                        break;
+                                                case SDLK_k:
+                                                        let='k';
+							break;
+                                                case SDLK_l:
+                                                        let='l';
+                                                        break;
+                                                case SDLK_m:
+                                                        let='m';
+                                                        break;
+                                                case SDLK_n:
+                                                        let='n';
+                                                        break;
+                                                case SDLK_o:
+                                                        let='o';
+                                                        break;
+                                                case SDLK_p:
+                                                        let='p';
+                                                        break;
+                                                case SDLK_q:
+                                                        let='q';
+                                                        break;
+                                                case SDLK_r:
+                                                        let='r';
+                                                        break;
+                                                case SDLK_s:
+                                                        let='s';
+                                                        break;
+						case SDLK_t:
+                                                        let='t';
+                                                        break;
+                                                case SDLK_u:
+                                                        let='u';
+                                                        break;
+                                                case SDLK_v:
+                                                        let='v';
+                                                        break;
+                                                case SDLK_y:
+                                                        let='y';
+                                                        break;
+                                                case SDLK_w:
+                                                        let='w';
+                                                        break;
+                                                case SDLK_x:
+                                                        let='x';
+                                                        break;
+                                                case SDLK_z:
+                                                        let='z';
+                                                        break;
+                                                case SDLK_RETURN:
+                                                        continuer=0;
+                                                        break;
+                                                default:
+							                                      let='&';
+                                        }
+                                //trans[cpt]=let;
+                                cpt++;
+                        }
+                }
+                trans[cpt]='/0';
+                fclose(reponse);
+        }
+}*/
+
+
+
+
